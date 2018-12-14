@@ -1,9 +1,14 @@
+#include "treeStructure.h"
+#include "stdio.h"
+#include "stdlib.h"
 #include "math.h"
+// Data function
 
-#include "quadtreeStructure.h"
+double value( double x, double y, double time ) {
 
+  return( 2.0*exp(-8.0*(x-time)*(x-time)) - 1.0 ) ;
+}
 // Evaluate function at centre of quadtree node
-
 double nodeValue( Node *node, double time ) {
 
   int level = node->level;
@@ -14,9 +19,5 @@ double nodeValue( Node *node, double time ) {
   return( value( x+0.5*h, y+0.5*h, time ) );
 }
 
-// Data function
 
-double value( double x, double y, double time ) {
 
-  return( 2.0*exp(-8.0*(x-time)*(x-time)) - 1.0 ) ;
-}
